@@ -1,0 +1,47 @@
+{
+  "name": "api-pesquisa-compras-publicas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/http/server.ts",
+    "build": "tsc",
+    "start:prod": "cross-env NODE_ENV=production node dist/http/server.js",
+    "prisma:migrate:dev": "npx prisma migrate dev",
+    "prisma:migrate:prod": "cross-env npx prisma migrate deploy",
+    "prisma:generate": "cross-env npx prisma generate"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigocandidodev/api-pesquisa-compras-publicas.git"
+  },
+  "keywords": [],
+  "author": "Rodrigo Candido da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigocandidodev/api-pesquisa-compras-publicas/issues"
+  },
+  "homepage": "https://github.com/rodrigocandidodev/api-pesquisa-compras-publicas#readme",
+  "description": "",
+  "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
+    "@types/node": "22.15.27",
+    "@types/ws": "^8.18.1",
+    "cross-env": "^10.0.0",
+    "dotenv-cli": "^10.0.0",
+    "prisma": "6.8.2",
+    "ts-node": "10.9.2",
+    "tsx": "4.19.4",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "@prisma/client": "6.8.2",
+    "bcryptjs": "3.0.2",
+    "dotenv": "16.5.0",
+    "fastify": "^5.8.2",
+    "fastify-type-provider-zod": "4.0.2",
+    "zod": "3.25.42"
+  }
+}
