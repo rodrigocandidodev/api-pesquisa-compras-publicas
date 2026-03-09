@@ -2,9 +2,14 @@ import axios from 'axios';
 import { ConsultaContratacoesPorDataPublicacaoSchemaType } from '../schemas/consultaContratacoesPorDataPublicacaoSchema';
 
 
-const pncpBaseUrl = 'https://pncp.gov.br/api/consulta';
+export interface IPNCPServices {
+  buscarContratacoesPorDataPublicacao: (filtros: ConsultaContratacoesPorDataPublicacaoSchemaType) => Promise<any>;
+}
 
-export async function buscarContratacoesPorDataPublicacao(filtros: ConsultaContratacoesPorDataPublicacaoSchemaType): Promise<any> {
+export function PNCPServices () {
+  const pncpBaseUrl = 'https://pncp.gov.br/api/consulta';
+  
+  async function buscarContratacoesPorDataPublicacao(filtros: ConsultaContratacoesPorDataPublicacaoSchemaType): Promise<any> {
     try {
       const response = await axios.get(`${pncpBaseUrl}/v1/contratacoes/publicacao`, {
         params: filtros
@@ -15,3 +20,8 @@ export async function buscarContratacoesPorDataPublicacao(filtros: ConsultaContr
       throw new Error(`Erro ao consultar PNCP: ${error.message}`);
     }
   }
+
+  return {
+    buscarContratacoesPorDataPublicacao
+  }
+}
