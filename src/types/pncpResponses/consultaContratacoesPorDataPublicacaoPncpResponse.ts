@@ -1,5 +1,4 @@
 export type ConsultaContratacoesPorDataPublicacaoPNCPResponse = {
-  data: {
     data:{
       dataAtualizacao: string;
       orgaoEntidade: {
@@ -57,5 +56,4 @@ export type ConsultaContratacoesPorDataPublicacaoPNCPResponse = {
     numeroPagina: number;
     paginasRestantes: number;
     empty: boolean;
-  };
 }
