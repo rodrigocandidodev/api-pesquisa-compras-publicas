@@ -1,4 +1,4 @@
-export type ConsultaContratacoesPorDataPublicacaoResponse = {
+export type ConsultaContratacoesPorDataPublicacaoPNCPResponse = {
   data: {
     data:{
       dataAtualizacao: string;
