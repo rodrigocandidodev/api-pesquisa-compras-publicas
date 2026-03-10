@@ -2,6 +2,7 @@ import { FastifyReply, FastifyRequest } from "fastify";
 import { ConsultaContratacoesPorDataPublicacaoSchemaType } from "../schemas/consultaContratacoesPorDataPublicacaoSchema";
 import { IPNCPServices } from "../services/pncpService";
 import { ConsultaContratacoesPorDataPublicacaoResponse } from "../types/apiResponses/consultaContratacoesPorDataPublicacaoResponse";
+import { formatDateToBrazilianDate } from "../utils/formatDate";
 
 
 export interface IConsultaPNCPController {
@@ -42,7 +43,7 @@ export const ConsultasPNCPController = (PNCPServices: IPNCPServices): IConsultaP
             nome: item.amparoLegal.nome,
             descricao: item.amparoLegal.descricao
           },
-          dataPublicacaoPncp: item.dataPublicacaoPncp,
+          dataPublicacaoPncp: formatDateToBrazilianDate(item.dataPublicacaoPncp),
           valorTotalEstimado: item.valorTotalEstimado
         })),
         totalRegistros: pncpData.totalRegistros,
